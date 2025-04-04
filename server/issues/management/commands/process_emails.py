@@ -4,7 +4,7 @@ from email.header import decode_header
 import re
 from django.core.management.base import BaseCommand
 from django.utils.timezone import now
-from issues.models import Bug  # Import your Bug model
+from issues.models import Bug
 import os
 import django
 
@@ -12,12 +12,14 @@ import django
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "server.settings")
 django.setup()
 
+# Email configuration
 EMAIL_HOST = "imap.gmail.com"
 EMAIL_USER = "bugTracker404@gmail.com"
 EMAIL_PASSWORD = "jenl qufz avdg crbx"  # Use an App Password for security
 MAILBOX = "INBOX"
 BUG_ID_PATTERN = r"Bug ID: (\S+)"
 
+"""Command to fetch and process unread bug report emails from a mailbox."""
 class Command(BaseCommand):
     help = "Fetch and process unread bug report emails"
 
@@ -99,10 +101,19 @@ class Command(BaseCommand):
             msg = email.message_from_bytes(msg_data[0][1])
             bug_id, subject, description = self.parse_email(msg)
 
+            # Parse the subject to get the status('open', 'in_progress', 'resolved', 'closed')
+            # If subject contains 'xxx', set status to 'xxx'
+            status_match = re.search(r"\b(open|in_progress|resolved|closed)\b", subject, re.IGNORECASE)
+            if status_match:
+                bug_status = status_match.group(1).lower()
+            else:
+                bug_status = "open"
+
+            # If no bug_id is found, skip the email
             if not bug_id:
                 self.stderr.write(f"Skipping email {email_id}: No Bug ID found.")
                 return
-            
+
             def determine_priority(subject, description):
                 """Determine priority based on keywords in the email."""
                 text = f"{subject} {description}".lower()  # Combine and lowercase text
@@ -115,27 +126,39 @@ class Command(BaseCommand):
                     return "Low"
                 else:
                     return "Medium"  # Default priority
-                
-            bug_priority = determine_priority(subject, description)  # Use our function
 
-            bug, created = Bug.objects.get_or_create(bug_id=bug_id, defaults={
-                "subject": subject,
-                "description": description,
-                "status": "open",
-                "priority": bug_priority,
-                "modified_count": 0,
-            })
+            bug_priority = determine_priority(subject, description)  
 
+            # Include created_at and updated_at in defaults
+            bug, created = Bug.objects.get_or_create(
+                bug_id=bug_id,
+                defaults={
+                    "subject": subject,
+                    "description": description,
+                    "status": "open",
+                    "priority": bug_priority,
+                    "created_at": now(),  # Set created_at to the current timestamp
+                    "updated_at": now(),  # Set updated_at to the current timestamp
+                    "modified_count": 0,
+                },
+            )
+
+            # If the bug already exists, update the description or priority if needed
             if not created:
+                # Update everything except the bug_id
+                bug.subject = subject
                 bug.description = description
+                bug.priority = bug_priority
+                bug.status = bug_status
                 bug.modified_count += 1
                 bug.updated_at = now()
                 bug.save()
-                self.stdout.write(f"Updated Bug: {bug_id}")
+                self.stdout.write(f"Updated Bug: {bug_id} with {bug.modified_count} modification(s).")
             else:
                 self.stdout.write(f"Created new Bug: {bug_id}")
 
             mail.store(email_id, "+FLAGS", "\\Seen")
-
+            
         except Exception as e:
             self.stderr.write(f"Error processing email {email_id}: {e}")
+            return

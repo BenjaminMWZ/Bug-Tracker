@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "issues", # Custom app for bug tracking
     "corsheaders", # CORS headers for cross-origin requests
     "rest_framework", # Django REST framework for building APIs
+    "django_celery_beat", # Celery for task scheduling
 ]
 
 MIDDLEWARE = [
@@ -121,6 +122,16 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Celery configuration
+from celery.schedules import timedelta
+
+CELERY_BEAT_SCHEDULE = {
+    'process-emails-task': {
+        'task': 'issues.tasks.process_emails_task',
+        'schedule': timedelta(seconds = 10),  # Executes every 10 seconds
+    },
+}
 
 # Celery Configuration
 CELERY_BROKER_URL = 'redis://localhost:6379/0'  # Uses Redis as message broker
