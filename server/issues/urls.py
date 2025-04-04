@@ -1,25 +1,14 @@
-"""
-URL configuration for bug_tracker project.
+from django.urls import path
+from django.http import HttpResponse
+from . import views
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-from django.contrib import admin
-from django.urls import path, include
-from .views import BugListView, BugDetailView, bug_modifications_chart
+# Define a simple view for the root path
+def home(request):
+    return HttpResponse("Welcome to the Bug Tracker API. Use /bugs/ or /bug_modifications/.")
 
 urlpatterns = [
-    path('api/bugs/', BugListView.as_view(), name='bug-list'),
-    path('api/bugs/<str:bug_id>/', BugDetailView.as_view(), name='bug-detail'),
-    path('api/bug_modifications/', bug_modifications_chart, name='bug-modifications'),
+    path('', home, name='home'),  # Root path
+    path('bugs/', views.BugListView.as_view(), name='bug-list'),  # List all bugs
+    path('bugs/<str:bug_id>/', views.BugDetailView.as_view(), name='bug-detail'),  # View specific bug
+    path('bug_modifications/', views.BugModificationListView.as_view(), name='bug-modifications'),  # List bug modifications
 ]

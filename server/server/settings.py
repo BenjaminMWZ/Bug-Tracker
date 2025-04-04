@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -72,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "bug_tracker.wsgi.application"
+WSGI_APPLICATION = "server.wsgi.application"
 
 
 # Database
@@ -125,3 +126,10 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 CELERY_BROKER_URL = 'redis://localhost:6379/0'  # Uses Redis as message broker
 CELERY_ACCEPT_CONTENT = ['json']  # Accept JSON format for tasks
 CELERY_TASK_SERIALIZER = 'json'  # Serialize tasks in JSON format
+
+# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "localhost"
+EMAIL_PORT = 1025
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = False

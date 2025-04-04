@@ -1,20 +1,23 @@
+# issues/views.py
+
 from rest_framework import generics
-from .models import Bug
-from .serializers import BugSerializer
-from django.http import JsonResponse
-from django.db.models import Count
+from .models import Bug, BugModification
+from .serializers import BugSerializer, BugModificationSerializer
 
-# API View to list all bugs
-class BugListView(generics.ListCreateAPIView):
+# GET /api/bugs/
+class BugListView(generics.ListAPIView):
     queryset = Bug.objects.all()
     serializer_class = BugSerializer
 
-# API View to retrieve, update, or delete a specific bug
-class BugDetailView(generics.RetrieveUpdateDestroyAPIView):
+
+# GET /api/bugs/<bug_id>/
+class BugDetailView(generics.RetrieveAPIView):
     queryset = Bug.objects.all()
     serializer_class = BugSerializer
+    lookup_field = 'bug_id'  # This makes it match the custom bug_id instead of pk
 
-# Custom API View to show bug modification statistics
-def bug_modifications_chart(request):
-    data = Bug.objects.values('status').annotate(count=Count('status'))
-    return JsonResponse(list(data), safe=False)
+
+# GET /api/bug_modifications/
+class BugModificationListView(generics.ListAPIView):
+    queryset = BugModification.objects.all()
+    serializer_class = BugModificationSerializer
