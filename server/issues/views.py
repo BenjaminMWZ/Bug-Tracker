@@ -6,11 +6,19 @@ from django.db.models.functions import TruncDate
 from .models import Bug
 from .serializers import BugSerializer
 from datetime import timedelta, date
+from rest_framework.pagination import PageNumberPagination
+
+# Custom pagination class (optional, for more control)
+class BugPagination(PageNumberPagination):
+    page_size = 10  # Default number of items per page
+    page_size_query_param = 'page_size'  # Allow clients to specify page size
+    max_page_size = 50  # Maximum number of items per page
 
 # GET /api/bugs/
 class BugListView(generics.ListAPIView):
     queryset = Bug.objects.all()
     serializer_class = BugSerializer
+    pagination_class = BugPagination  # Enable pagination
 
 
 # GET /api/bugs/<bug_id>/

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchBugs } from "../api/bugApi";
 import { useNavigate } from "react-router-dom";
-import { Table, Tag, Button, Typography, Spin } from "antd";
+import { Table, Tag, Button, Typography, Spin, Pagination } from "antd";
 import { EyeOutlined, ReloadOutlined } from "@ant-design/icons";
 
 const { Title } = Typography;
@@ -9,13 +9,23 @@ const { Title } = Typography;
 const BugList = () => {
   const [bugs, setBugs] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [pagination, setPagination] = useState({
+    current: 1,
+    pageSize: 10,
+    total: 0,
+  });
   const navigate = useNavigate();
 
-  const loadBugs = async () => {
+  const loadBugs = async (page = 1, pageSize = 10) => {
     setLoading(true);
     try {
-      const data = await fetchBugs();
-      setBugs(data);
+      const response = await fetchBugs(page, pageSize);
+      setBugs(response.results);
+      setPagination({
+        current: page,
+        pageSize: pageSize,
+        total: response.count,
+      });
     } catch (error) {
       console.error("Failed to load bugs:", error);
     } finally {
@@ -119,6 +129,10 @@ const BugList = () => {
     },
   ];
 
+  const handleTableChange = (pagination) => {
+    loadBugs(pagination.current, pagination.pageSize);
+  };
+
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
@@ -126,7 +140,7 @@ const BugList = () => {
         <Button 
           type="primary" 
           icon={<ReloadOutlined />} 
-          onClick={loadBugs}
+          onClick={() => loadBugs(pagination.current, pagination.pageSize)}
           loading={loading}
         >
           Refresh
@@ -142,11 +156,14 @@ const BugList = () => {
           columns={columns} 
           dataSource={bugs} 
           rowKey="bug_id"
-          pagination={{ 
-            pageSize: 10,
-            showSizeChanger: true, 
+          pagination={{
+            current: pagination.current,
+            pageSize: pagination.pageSize,
+            total: pagination.total,
+            showSizeChanger: true,
             pageSizeOptions: ['10', '20', '50'],
           }}
+          onChange={handleTableChange}
         />
       )}
     </div>
