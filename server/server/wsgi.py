@@ -1,34 +1,18 @@
 import os
 import sys
+from pathlib import Path
 
-# Debug: Print environment information
-print("========== DEBUG START ==========")
-print("Current directory:", os.getcwd())
-print("Python path before:", sys.path)
-print("Directory contents:", os.listdir(os.getcwd()))
+# Get the current file's directory
+current_dir = Path(__file__).resolve().parent
+settings_path = current_dir.parent
 
-# Try multiple path configurations
-server_dir = os.path.dirname(os.path.abspath(__file__))
-base_dir = os.path.dirname(server_dir)
-project_root = os.path.dirname(base_dir)
+# Make sure the settings directory is in the Python path
+if str(settings_path) not in sys.path:
+    sys.path.insert(0, str(settings_path))
 
-# Add both server and base directory to the path
-sys.path.insert(0, server_dir)
-sys.path.insert(0, base_dir)
-
-# If we're on Heroku, the structure is likely /app/server/...
-if os.path.exists('/app'):
-    sys.path.insert(0, '/app')
-
-print("Added to path:", server_dir)
-print("Added to path:", base_dir)
-print("Python path after:", sys.path)
-print("========== DEBUG END ==========")
-
-# Set up the settings module before importing Django components
+# Set settings module
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "server.settings")
-print("Settings module:", os.environ.get("DJANGO_SETTINGS_MODULE"))
 
-# Now import Django components
+# Import Django's WSGI application after path setup
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
