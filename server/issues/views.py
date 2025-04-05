@@ -5,6 +5,7 @@ from django.db.models import Count
 from django.db.models.functions import TruncDate
 from .models import Bug
 from .serializers import BugSerializer
+from datetime import timedelta, date
 
 # GET /api/bugs/
 class BugListView(generics.ListAPIView):
@@ -19,9 +20,16 @@ class BugDetailView(generics.RetrieveAPIView):
     lookup_field = 'bug_id'  # This makes it match the custom bug_id instead of pk
 
 
-# GET /api/bug_modifications/
+#  GET /api/bug_modifications/
 class BugModificationListView(APIView):
     def get(self, request, *args, **kwargs):
+        # Get today's date and calculate the date one week ago
+        today = date.today()
+        one_week_ago = today - timedelta(days=7)
+
+        # Generate a list of dates for the past week
+        default_dates = {str(one_week_ago + timedelta(days=i)): 0 for i in range(8)}
+
         # Aggregate Bug records by date and count the number of modifications
         aggregated_data = (
             Bug.objects.filter(modified_count__gt=0)  # Only include bugs that were modified
@@ -31,7 +39,12 @@ class BugModificationListView(APIView):
             .order_by('date')  # Order by date
         )
 
+        # Update the default dates with actual modification counts
+        for entry in aggregated_data:
+            date_str = entry["date"].strftime("%Y-%m-%d")
+            default_dates[date_str] = entry["count"]
+
         # Format the data as a list of dictionaries
-        result = [{"date": entry["date"].strftime("%Y-%m-%d"), "count": entry["count"]} for entry in aggregated_data]
+        result = [{"date": date_str, "count": count} for date_str, count in default_dates.items()]
 
         return Response(result)
