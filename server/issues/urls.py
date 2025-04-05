@@ -17,7 +17,7 @@ def home(request):
 urlpatterns = [
     path('', home, name='home'),  # Root path
     path('admin/', admin.site.urls),
-    path('api/bugs/', views.BugListView.as_view(), name='bug-list'),  # List all bugs
-    path('api/bugs/<str:bug_id>/', views.BugDetailView.as_view(), name='bug-detail'),  # View specific bug
-    path('api/bug_modifications/', views.BugModificationListView.as_view(), name='bug-modifications'),  # Aggregated bug modifications
+    path('bugs/', views.BugListView.as_view(), name='bug-list'),  # List all bugs
+    path('bugs/<str:bug_id>/', views.BugDetailView.as_view(), name='bug-detail'),  # View specific bug
+    path('bug_modifications/', views.BugModificationListView.as_view(), name='bug-modifications'),  # Aggregated bug modifications
 ]
