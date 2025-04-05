@@ -57,7 +57,7 @@ MIDDLEWARE = [
 
 CORS_ALLOW_ALL_ORIGINS = True  # Allow frontend to interact with backend
 
-ROOT_URLCONF = "issues.urls"
+ROOT_URLCONF = "server.urls"
 
 TEMPLATES = [
     {
