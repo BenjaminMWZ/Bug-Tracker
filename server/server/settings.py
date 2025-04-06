@@ -48,7 +48,6 @@ TEMPLATES = [
 # Configure static files to include the React build
 STATICFILES_DIRS = [
     os.path.join(os.path.dirname(BASE_DIR), 'web', 'build', 'static'),
-    os.path.join(os.path.dirname(BASE_DIR), 'web', 'build'),
 ]
 
 # The URL where static files will be served
