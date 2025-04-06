@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchBugs } from "../api/bugApi";
 import { useNavigate } from "react-router-dom";
-import { Table, Tag, Button, Typography, Spin } from "antd";
+import { Table, Tag, Button, Typography, Spin, Pagination } from "antd";
 import { EyeOutlined, ReloadOutlined } from "@ant-design/icons";
 
 const { Title } = Typography;

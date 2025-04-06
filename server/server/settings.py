@@ -11,73 +11,22 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-import os
-import dj_database_url
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Then update your database configuration to use the Path object
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",  # This will now work correctly
-    }
-}
-
-# Point to the directory where your React build is located
-REACT_APP_DIR = os.path.join(os.path.dirname(BASE_DIR), 'web')
-
-# Add the React build directory to the template dirs
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            os.path.join(BASE_DIR, 'templates'),
-            os.path.join(REACT_APP_DIR, 'build'),  # Add the React build directory
-        ],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
-
-# Configure static files to include the React build
-STATICFILES_DIRS = [
-    os.path.join(REACT_APP_DIR, 'build', 'static'),
-]
-
-# The URL where static files will be served
-STATIC_URL = '/static/'
-
-# The directory where static files will be collected
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-# Enable WhiteNoise's GZip compression
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-# Add WhiteNoise configuration
-WHITENOISE_USE_FINDERS = True
-WHITENOISE_MANIFEST_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-WHITENOISE_ALLOW_ALL_ORIGINS = True
-WHITENOISE_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', "django-insecure-lp+j301xb3i5*o)+(g!ve1&a8u++#%wgr3_5rvl-3radyj)*lo")
+SECRET_KEY = "django-insecure-lp+j301xb3i5*o)+(g!ve1&a8u++#%wgr3_5rvl-3radyj)*lo"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
+DEBUG = True
 
-ALLOWED_HOSTS = ['*', '.herokuapp.com'] 
+ALLOWED_HOSTS = ['*']
+
 
 # Application definition
 
@@ -103,25 +52,41 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    'whitenoise.middleware.WhiteNoiseMiddleware',  
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True  # Allow frontend to interact with backend
 
-ROOT_URLCONF = "server.urls"
+ROOT_URLCONF = "issues.urls"
+
+TEMPLATES = [
+    {
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+            ],
+        },
+    },
+]
 
 WSGI_APPLICATION = "server.wsgi.application"
+
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# Update database configuration
 DATABASES = {
-    'default': dj_database_url.config(
-        default='sqlite:///' + str(BASE_DIR / 'db.sqlite3'),
-        conn_max_age=600
-    )
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -150,6 +115,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
+
+STATIC_URL = "static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

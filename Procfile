@@ -1,1 +1,0 @@
-web: cd server && python manage.py collectstatic --noinput && gunicorn server.wsgi:application
