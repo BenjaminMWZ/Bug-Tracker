@@ -1,0 +1,4 @@
+bug_tracker_env/
+venv/
+env/
+.env/
