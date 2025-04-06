@@ -105,6 +105,11 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True  # Allow frontend to interact with backend
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOWED_ORIGINS = [
+    "https://bug-tracker-2f9e0844b94f.herokuapp.com",
+    "http://localhost:3000",
+]
 
 ROOT_URLCONF = "server.urls"
 
