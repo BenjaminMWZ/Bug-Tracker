@@ -18,6 +18,13 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Then update your database configuration to use the Path object
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",  # This will now work correctly
+    }
+}
 # Point to the directory where your React build is located
 REACT_APP_DIR = os.path.join(os.path.dirname(BASE_DIR), 'web')
 
@@ -26,9 +33,17 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'templates'),  # Add this line
-            os.path.join(REACT_APP_DIR, 'build'),
+            os.path.join(BASE_DIR, 'templates'),  # Add this line to include the templates directory
         ],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
     },
 ]
 
@@ -86,22 +101,6 @@ MIDDLEWARE = [
 CORS_ALLOW_ALL_ORIGINS = True  # Allow frontend to interact with backend
 
 ROOT_URLCONF = "server.urls"
-
-TEMPLATES = [
-    {
-        "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
-        "APP_DIRS": True,
-        "OPTIONS": {
-            "context_processors": [
-                "django.template.context_processors.debug",
-                "django.template.context_processors.request",
-                "django.contrib.auth.context_processors.auth",
-                "django.contrib.messages.context_processors.messages",
-            ],
-        },
-    },
-]
 
 WSGI_APPLICATION = "server.wsgi.application"
 
