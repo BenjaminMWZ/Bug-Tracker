@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import serializers
+import logging
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -32,24 +33,42 @@ class RegistrationSerializer(serializers.ModelSerializer):
         user = User.objects.create_user(**validated_data)
         return user
 
-class LoginView(APIView):
-    permission_classes = [permissions.AllowAny]
+import logging
+from rest_framework import status
+from rest_framework.response import Response
 
+logger = logging.getLogger('bug_tracker')
+
+class LoginView(APIView):
     def post(self, request):
         username = request.data.get('username')
         password = request.data.get('password')
         
-        user = authenticate(username=username, password=password)
+        try:
+            logger.info(f"Login attempt for user '{username}'")
+            
+            user = authenticate(username=username, password=password)
+            
+            if user:
+                token, created = Token.objects.get_or_create(user=user)
+                logger.info(f"Login successful for user '{username}'")
+                return Response({
+                    'token': token.key,
+                    'user': UserSerializer(user).data
+                })
+            
+            logger.warning(f"Login failed for user '{username}' - invalid credentials")
+            return Response(
+                {'error': 'Invalid Credentials'}, 
+                status=status.HTTP_401_UNAUTHORIZED
+            )
+        except Exception as e:
+            logger.error(f"Login error for user '{username}': {str(e)}")
+            return Response(
+                {'error': 'An error occurred during login'},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
         
-        if user:
-            token, created = Token.objects.get_or_create(user=user)
-            return Response({
-                'token': token.key,
-                'user': UserSerializer(user).data
-            })
-        
-        return Response({'error': 'Invalid Credentials'}, status=status.HTTP_401_UNAUTHORIZED)
-
 class RegistrationView(APIView):
     permission_classes = [permissions.AllowAny]
 

@@ -16,7 +16,10 @@ export const fetchBugs = async (page = 1, pageSize = 10) => {
     });
     
     if (response.status === 401) {
-      // Handle unauthorized (could trigger token refresh or logout)
+      // Handle unauthorized
+      alert('You need to log in again');
+      localStorage.removeItem('auth_token');
+      window.location.href = '/login';
       throw new Error('Unauthorized - Please log in again');
     }
     
@@ -38,11 +41,15 @@ export const fetchBugDetails = async (bugId) => {
     });
     
     if (response.status === 401) {
+      // Handle unauthorized
+      alert('You need to log in again');
+      localStorage.removeItem('auth_token');
+      window.location.href = '/login';
       throw new Error('Unauthorized - Please log in again');
     }
     
     if (!response.ok) {
-      throw new Error("Failed to fetch bug details");
+      throw new Error(`Failed to fetch bug details: ${response.status}`);
     }
     
     return await response.json();

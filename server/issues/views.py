@@ -8,6 +8,7 @@ from .serializers import BugSerializer
 from datetime import timedelta, date
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAuthenticated
+import logging
 
 # Custom pagination class (optional, for more control)
 class BugPagination(PageNumberPagination):
@@ -30,34 +31,45 @@ class BugDetailView(generics.RetrieveAPIView):
     lookup_field = 'bug_id'  # This makes it match the custom bug_id instead of pk
     permission_classes = [IsAuthenticated]  # Require authentication
 
+logger = logging.getLogger('bug_tracker')
 
 #  GET /api/bug_modifications/
+logger = logging.getLogger('bug_tracker')
+
 class BugModificationListView(APIView):
-    permission_classes = [IsAuthenticated]  # Require authentication
-
     def get(self, request, *args, **kwargs):
-        # Get today's date and calculate the date one week ago
-        today = date.today()
-        one_week_ago = today - timedelta(days=7)
+        try:
+            # Get today's date and calculate the date one week ago
+            today = date.today()
+            one_week_ago = today - timedelta(days=7)
+            
+            logger.info(f"Fetching bug modifications from {one_week_ago} to {today}")
 
-        # Generate a list of dates for the past week
-        default_dates = {str(one_week_ago + timedelta(days=i)): 0 for i in range(8)}
+            # Generate a list of dates for the past week
+            default_dates = {str(one_week_ago + timedelta(days=i)): 0 for i in range(8)}
 
-        # Aggregate Bug records by date and count the number of modifications
-        aggregated_data = (
-            Bug.objects.filter(modified_count__gt=0)  # Only include bugs that were modified
-            .annotate(date=TruncDate('updated_at'))  # Truncate updated_at to date
-            .values('date')  # Group by date
-            .annotate(count=Count('id'))  # Count the number of bugs modified on each date
-            .order_by('date')  # Order by date
-        )
+            # Aggregate Bug records by date and count the number of modifications
+            aggregated_data = (
+                Bug.objects.filter(modified_count__gt=0)  # Only include bugs that were modified
+                .annotate(date=TruncDate('updated_at'))  # Truncate updated_at to date
+                .values('date')  # Group by date
+                .annotate(count=Count('id'))  # Count the number of bugs modified on each date
+                .order_by('date')  # Order by date
+            )
 
-        # Update the default dates with actual modification counts
-        for entry in aggregated_data:
-            date_str = entry["date"].strftime("%Y-%m-%d")
-            default_dates[date_str] = entry["count"]
+            # Update the default dates with actual modification counts
+            for entry in aggregated_data:
+                date_str = entry["date"].strftime("%Y-%m-%d")
+                default_dates[date_str] = entry["count"]
 
-        # Format the data as a list of dictionaries
-        result = [{"date": date_str, "count": count} for date_str, count in default_dates.items()]
-
-        return Response(result)
+            # Format the data as a list of dictionaries
+            result = [{"date": date_str, "count": count} for date_str, count in default_dates.items()]
+            
+            return Response(result)
+            
+        except Exception as e:
+            logger.error(f"Error fetching bug modifications: {str(e)}")
+            return Response(
+                {"error": "Failed to retrieve bug modifications data"},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )

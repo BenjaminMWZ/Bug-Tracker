@@ -7,6 +7,7 @@ from django.utils.timezone import now
 from issues.models import Bug
 import os
 import django
+import logging
 
 # Load Django settings if running standalone
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "server.settings")
@@ -18,6 +19,9 @@ EMAIL_USER = "bugTracker404@gmail.com"
 EMAIL_PASSWORD = "jenl qufz avdg crbx"  # Use an App Password for security
 MAILBOX = "INBOX"
 BUG_ID_PATTERN = r"Bug ID: (\S+)"
+
+# Get a logger for the email processor
+logger = logging.getLogger('bug_tracker')
 
 """Command to fetch and process unread bug report emails from a mailbox."""
 class Command(BaseCommand):
@@ -177,6 +181,7 @@ class Command(BaseCommand):
         try:
             status, msg_data = mail.fetch(email_id, "(RFC822)")
             if status != "OK":
+                logger.error(f"Failed to fetch email {email_id}")
                 self.stderr.write(f"Failed to fetch email {email_id}")
                 return
 
@@ -185,6 +190,7 @@ class Command(BaseCommand):
 
             # If no bug_id is found, skip the email
             if not bug_id:
+                logger.warning(f"Skipping email {email_id}: No Bug ID found.")
                 self.stderr.write(f"Skipping email {email_id}: No Bug ID found.")
                 return
 
@@ -194,13 +200,16 @@ class Command(BaseCommand):
             # Determine priority (existing method)
             bug_priority = self.determine_priority(subject, description)
 
-            # Include created_at and updated_at in defaults
+            # Log what we're about to do
+            logger.info(f"Processing bug ID: {bug_id}, Status: {bug_status}, Priority: {bug_priority}")
+
+            # Create or update the bug
             bug, created = Bug.objects.get_or_create(
                 bug_id=bug_id,
                 defaults={
                     "subject": subject,
                     "description": description,
-                    "status": bug_status,  # Use the extracted status for new bugs too
+                    "status": bug_status,
                     "priority": bug_priority,
                     "created_at": now(),
                     "updated_at": now(),
@@ -213,17 +222,71 @@ class Command(BaseCommand):
                 # Update everything except the bug_id
                 bug.subject = subject
                 bug.description = description
-                bug.priority = bug_priority
                 bug.status = bug_status
+                bug.priority = bug_priority
                 bug.modified_count += 1
                 bug.updated_at = now()
                 bug.save()
-                self.stdout.write(f"Updated Bug: {bug_id} with {bug.modified_count} modification(s).")
+                logger.info(f"Updated Bug: {bug_id} with {bug.modified_count} modification(s).")
             else:
-                self.stdout.write(f"Created new Bug: {bug_id}")
+                logger.info(f"Created new Bug: {bug_id}")
 
             mail.store(email_id, "+FLAGS", "\\Seen")
             
         except Exception as e:
-            self.stderr.write(f"Error processing email {email_id}: {e}")
-            return
+            logger.error(f"Error processing email {email_id}: {str(e)}")
+            self.stderr.write(f"Error processing email {email_id}: {str(e)}")
+            """Process a single email and update/create a Bug record."""
+            try:
+                status, msg_data = mail.fetch(email_id, "(RFC822)")
+                if status != "OK":
+                    self.stderr.write(f"Failed to fetch email {email_id}")
+                    return
+
+                msg = email.message_from_bytes(msg_data[0][1])
+                bug_id, subject, description = self.parse_email(msg)
+
+                # If no bug_id is found, skip the email
+                if not bug_id:
+                    self.stderr.write(f"Skipping email {email_id}: No Bug ID found.")
+                    return
+
+                # Extract status using the improved method
+                bug_status = self.extract_status(subject, description)
+                
+                # Determine priority (existing method)
+                bug_priority = self.determine_priority(subject, description)
+
+                # Include created_at and updated_at in defaults
+                bug, created = Bug.objects.get_or_create(
+                    bug_id=bug_id,
+                    defaults={
+                        "subject": subject,
+                        "description": description,
+                        "status": bug_status,  # Use the extracted status for new bugs too
+                        "priority": bug_priority,
+                        "created_at": now(),
+                        "updated_at": now(),
+                        "modified_count": 0,
+                    },
+                )
+
+                # If the bug already exists, update fields
+                if not created:
+                    # Update everything except the bug_id
+                    bug.subject = subject
+                    bug.description = description
+                    bug.priority = bug_priority
+                    bug.status = bug_status
+                    bug.modified_count += 1
+                    bug.updated_at = now()
+                    bug.save()
+                    self.stdout.write(f"Updated Bug: {bug_id} with {bug.modified_count} modification(s).")
+                else:
+                    self.stdout.write(f"Created new Bug: {bug_id}")
+
+                mail.store(email_id, "+FLAGS", "\\Seen")
+                
+            except Exception as e:
+                self.stderr.write(f"Error processing email {email_id}: {e}")
+                return

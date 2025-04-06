@@ -10,7 +10,6 @@ app.conf.beat_max_loop_interval = 5  # Check for scheduled tasks every 5 seconds
 
 # Using a string here means the worker doesn't have to serialize
 # the configuration object to child processes.
-# Namespace 'CELERY' means all celery-related configs must have a `CELERY_` prefix.
 app.config_from_object('django.conf:settings', namespace='CELERY')
 
 # Load task modules from all registered Django app configs.
