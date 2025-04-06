@@ -205,3 +205,7 @@ Starting scheduled email processing task
 Email processing task completed successfully
 Starting scheduled email processing task
 Email processing task completed successfully
+Error processing email b'1': 'tuple' object has no attribute 'decode'
+Error processing email b'1': 'tuple' object has no attribute 'decode'
+Error processing email b'1': 'tuple' object has no attribute 'decode'
+Error processing email b'1': 'NoneType' object has no attribute 'fetch'
