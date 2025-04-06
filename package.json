@@ -1,0 +1,12 @@
+{
+  "name": "bug-tracker",
+  "version": "1.0.0",
+  "description": "Bug Tracker Application",
+  "engines": {
+    "node": "18.x",
+    "npm": "9.x"
+  },
+  "scripts": {
+    "heroku-postbuild": "cd web && npm install && npm run build"
+  }
+} 

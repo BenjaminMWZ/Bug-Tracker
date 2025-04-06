@@ -1,1 +1,1 @@
-web: cd web && npm install && npm run build && cd ../server && python manage.py collectstatic --noinput && gunicorn server.wsgi
+web: cd server && python manage.py collectstatic --noinput && gunicorn server.wsgi:application
