@@ -96,7 +96,7 @@ const Dashboard = () => {
     };
 
     switch (chartType) {
-      case 'bar':
+      case 'area':
         return (
           <ResponsiveContainer width="100%" height={400}>
             <AreaChart
@@ -125,7 +125,7 @@ const Dashboard = () => {
             </AreaChart>
           </ResponsiveContainer>
         );
-      case 'area':
+      case 'bar':
         return (
           <ResponsiveContainer width="100%" height={400}>
             <BarChart
@@ -179,8 +179,8 @@ const Dashboard = () => {
             onChange={setChartType}
           >
             <Option value="line"><LineChartOutlined /> Line Chart</Option>
-            <Option value="bar"><AreaChartOutlined /> Area Chart</Option>
-            <Option value="area"><BarChartOutlined /> Bar Chart</Option>
+            <Option value="area"><AreaChartOutlined /> Area Chart</Option>
+            <Option value="bar"><BarChartOutlined /> Bar Chart</Option>
           </Select>
         </div>
       }
