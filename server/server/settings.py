@@ -64,6 +64,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 WHITENOISE_USE_FINDERS = True
 WHITENOISE_MANIFEST_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 WHITENOISE_ALLOW_ALL_ORIGINS = True
+WHITENOISE_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -72,7 +73,7 @@ WHITENOISE_ALLOW_ALL_ORIGINS = True
 SECRET_KEY = "django-insecure-lp+j301xb3i5*o)+(g!ve1&a8u++#%wgr3_5rvl-3radyj)*lo"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*', '.herokuapp.com'] 
 
