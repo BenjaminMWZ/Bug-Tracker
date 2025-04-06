@@ -23,7 +23,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "heroku-postbuild": "npm install && npm run build && mkdir -p ../server/staticfiles/static && cp -r build/static/* ../server/staticfiles/static/ && cp build/favicon.ico ../server/staticfiles/static/ && cp build/manifest.json ../server/staticfiles/static/"
+    "heroku-postbuild": "npm install && npm run build && mkdir -p ../server/staticfiles && cp -r build/* ../server/staticfiles/"
   },
   "eslintConfig": {
     "extends": [

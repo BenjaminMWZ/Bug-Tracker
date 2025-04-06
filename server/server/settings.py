@@ -28,7 +28,7 @@ REACT_APP_DIR = os.path.join(os.path.dirname(BASE_DIR), 'web')
 
 # Configure static files to include the React build
 STATICFILES_DIRS = [
-    os.path.join(REACT_APP_DIR, 'web', 'build', 'static'),
+    os.path.join(REACT_APP_DIR, 'build'),
 ]
 
 # The URL where static files will be served
