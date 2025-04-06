@@ -31,7 +31,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'templates'),  # Add this line to include the templates directory
+            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(REACT_APP_DIR, 'build'),  # Add the React build directory
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -47,7 +48,7 @@ TEMPLATES = [
 
 # Configure static files to include the React build
 STATICFILES_DIRS = [
-    os.path.join(os.path.dirname(BASE_DIR), 'web', 'build', 'static'),
+    os.path.join(REACT_APP_DIR, 'build', 'static'),
 ]
 
 # The URL where static files will be served
