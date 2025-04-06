@@ -16,7 +16,7 @@ from pathlib import Path
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Point to the directory where your React build is located
 REACT_APP_DIR = os.path.join(os.path.dirname(BASE_DIR), 'web')
