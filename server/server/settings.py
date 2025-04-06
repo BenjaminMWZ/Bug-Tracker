@@ -11,8 +11,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-# Add to your existing settings
-
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -50,7 +48,7 @@ TEMPLATES = [
 # Configure static files to include the React build
 STATICFILES_DIRS = [
     os.path.join(REACT_APP_DIR, 'build', 'static'),
-    # ... your other static directories
+    os.path.join(REACT_APP_DIR, 'build'),  # Add this line to include root files like manifest.json
 ]
 
 # The URL where static files will be served
