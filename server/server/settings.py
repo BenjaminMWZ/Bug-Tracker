@@ -47,8 +47,8 @@ TEMPLATES = [
 
 # Configure static files to include the React build
 STATICFILES_DIRS = [
-    os.path.join(REACT_APP_DIR, 'build', 'static'),
-    os.path.join(REACT_APP_DIR, 'build'),  # Add this line to include root files like manifest.json
+    os.path.join(os.path.dirname(BASE_DIR), 'web', 'build', 'static'),
+    os.path.join(os.path.dirname(BASE_DIR), 'web', 'build'),
 ]
 
 # The URL where static files will be served
@@ -64,7 +64,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 SECRET_KEY = "django-insecure-lp+j301xb3i5*o)+(g!ve1&a8u++#%wgr3_5rvl-3radyj)*lo"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*', '.herokuapp.com'] 
 
