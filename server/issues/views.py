@@ -7,6 +7,7 @@ from .models import Bug
 from .serializers import BugSerializer
 from datetime import timedelta, date
 from rest_framework.pagination import PageNumberPagination
+from rest_framework.permissions import IsAuthenticated
 
 # Custom pagination class (optional, for more control)
 class BugPagination(PageNumberPagination):
@@ -19,6 +20,7 @@ class BugListView(generics.ListAPIView):
     queryset = Bug.objects.all()
     serializer_class = BugSerializer
     pagination_class = BugPagination  # Enable pagination
+    permission_classes = [IsAuthenticated]  # Require authentication
 
 
 # GET /api/bugs/<bug_id>/
@@ -26,10 +28,13 @@ class BugDetailView(generics.RetrieveAPIView):
     queryset = Bug.objects.all()
     serializer_class = BugSerializer
     lookup_field = 'bug_id'  # This makes it match the custom bug_id instead of pk
+    permission_classes = [IsAuthenticated]  # Require authentication
 
 
 #  GET /api/bug_modifications/
 class BugModificationListView(APIView):
+    permission_classes = [IsAuthenticated]  # Require authentication
+
     def get(self, request, *args, **kwargs):
         # Get today's date and calculate the date one week ago
         today = date.today()
