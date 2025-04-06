@@ -6,15 +6,14 @@
     <link rel="icon" href="{% static 'favicon.ico' %}" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta name="description" content="Bug Tracker application" />
-    <link rel="apple-touch-icon" href="{% static 'logo192.png' %}" />
     <link rel="manifest" href="{% static 'manifest.json' %}" />
     <title>Bug Tracker</title>
-    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <!-- Reference CSS from the build -->
+    <link href="{% static 'build/static/css/main.css' %}" rel="stylesheet">
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <script src="{% static 'js/main.js' %}"></script>
+    <!-- Reference JS from the build -->
+    <script src="{% static 'build/static/js/main.js' %}"></script>
   </body>
 </html>

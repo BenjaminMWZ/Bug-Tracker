@@ -20,7 +20,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "cd web && npm install && npm run build",
+    "heroku-postbuild": "npm run build && mkdir -p ../server/templates/build && cp -R web/build/* ../server/templates/build/",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
