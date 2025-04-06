@@ -25,6 +25,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         """Main function to fetch and process emails."""
+        self.stdout.write(f"Starting email processing at {now().strftime('%Y-%m-%d %H:%M:%S')}")
         mail = self.connect_to_email()
         if not mail:
             self.stdout.write(self.style.ERROR("Failed to connect to email server."))
@@ -40,7 +41,8 @@ class Command(BaseCommand):
 
         mail.logout()
         self.stdout.write(self.style.SUCCESS("Successfully processed emails."))
-
+        self.stdout.write(f"Completed email processing at {now().strftime('%Y-%m-%d %H:%M:%S')}")
+    
     def connect_to_email(self):
         """Connect to the email server via IMAP."""
         try:
@@ -87,9 +89,89 @@ class Command(BaseCommand):
         else:
             description = msg.get_payload(decode=True).decode(msg.get_content_charset() or "utf-8")
 
+        # If no bug_id is found, generate one
+        if not bug_id:
+            # Generate a unique ID based on timestamp and part of subject
+            timestamp = now().strftime("%Y%m%d%H%M%S")
+            subject_slug = re.sub(r'[^a-z0-9]', '', subject.lower()[:10])
+            bug_id = f"AUTO-{timestamp}-{subject_slug}"
+            
         return bug_id, subject, description
+        
+    def extract_status(self, subject, description):
+        """
+        Extract bug status from subject and description with improved pattern matching.
+        
+        Looks for status indicators with various formats:
+        - Status: open/closed/etc.
+        - State: in progress/etc.
+        - [open]/[closed]/etc.
+        - "Bug is now closed"/etc.
+        """
+        # Normalize text for pattern matching
+        combined_text = f"{subject} {description}".lower()
+        
+        # Define status patterns with common prefixes
+        status_patterns = [
+            # Match formal status indicators like "Status: open"
+            r"(?:status|state)\s*:\s*(open|closed|resolved|in[-_\s]progress)",
+            # Match bracketed status like "[open]"
+            r"\[(open|closed|resolved|in[-_\s]progress)\]",
+            # Match status verbs like "closing this bug"
+            r"(?:bug|issue|ticket) (?:is|has been|was) (open(?:ed)?|clos(?:ed|ing)|resolv(?:ed|ing)|in[-_\s]progress)",
+            # Match direct status mentions
+            r"\b(open(?:ed)?|clos(?:ed|ing)|resolv(?:ed|ing)|in[-_\s]progress)\b",
+        ]
+        
+        # Try each pattern
+        for pattern in status_patterns:
+            match = re.search(pattern, combined_text, re.IGNORECASE)
+            if match:
+                status_text = match.group(1).lower()
+                
+                # Normalize various status formats
+                if re.match(r"open(?:ed)?", status_text):
+                    return "open"
+                elif re.match(r"clos(?:ed|ing)", status_text):
+                    return "closed"
+                elif re.match(r"resolv(?:ed|ing)", status_text):
+                    return "resolved"
+                elif re.match(r"in[-_\s]progress", status_text):
+                    return "in_progress"
+        
+        # Default status for new bugs
+        return "open"
 
-    
+    def determine_priority(self, subject, description):
+        """Determine priority based on keywords in the email."""
+        text = f"{subject} {description}".lower()  # Combine and lowercase text
+
+        # Keywords for each priority level
+        high_keywords = ["urgent", "high", "critical", "blocker", "emergency", "p1", "priority 1"]
+        medium_keywords = ["medium", "normal", "moderate", "p2", "priority 2"]
+        low_keywords = ["low", "minor", "trivial", "p3", "priority 3", "can wait"]
+        
+        # Check for priority indicators with formal notation (e.g., "Priority: High")
+        priority_match = re.search(r"priority\s*:\s*(high|medium|low)", text, re.IGNORECASE)
+        if priority_match:
+            return priority_match.group(1).capitalize()
+            
+        # Check for keywords
+        for keyword in high_keywords:
+            if keyword in text:
+                return "High"
+        
+        for keyword in medium_keywords:
+            if keyword in text:
+                return "Medium"
+                
+        for keyword in low_keywords:
+            if keyword in text:
+                return "Low"
+                
+        # Default to Medium priority
+        return "Medium"
+
     def process_email(self, mail, email_id):
         """Process a single email and update/create a Bug record."""
         try:
@@ -101,33 +183,16 @@ class Command(BaseCommand):
             msg = email.message_from_bytes(msg_data[0][1])
             bug_id, subject, description = self.parse_email(msg)
 
-            # Parse the subject to get the status('open', 'in_progress', 'resolved', 'closed')
-            # If subject contains 'xxx', set status to 'xxx'
-            status_match = re.search(r"\b(open|in_progress|resolved|closed)\b", subject, re.IGNORECASE)
-            if status_match:
-                bug_status = status_match.group(1).lower()
-            else:
-                bug_status = "open"
-
             # If no bug_id is found, skip the email
             if not bug_id:
                 self.stderr.write(f"Skipping email {email_id}: No Bug ID found.")
                 return
 
-            def determine_priority(subject, description):
-                """Determine priority based on keywords in the email."""
-                text = f"{subject} {description}".lower()  # Combine and lowercase text
-
-                if "urgent" in text or "high" in text:
-                    return "High"
-                elif "medium" in text:
-                    return "Medium"
-                elif "low" in text or "minor" in text:
-                    return "Low"
-                else:
-                    return "Medium"  # Default priority
-
-            bug_priority = determine_priority(subject, description)  
+            # Extract status using the improved method
+            bug_status = self.extract_status(subject, description)
+            
+            # Determine priority (existing method)
+            bug_priority = self.determine_priority(subject, description)
 
             # Include created_at and updated_at in defaults
             bug, created = Bug.objects.get_or_create(
@@ -135,15 +200,15 @@ class Command(BaseCommand):
                 defaults={
                     "subject": subject,
                     "description": description,
-                    "status": "open",
+                    "status": bug_status,  # Use the extracted status for new bugs too
                     "priority": bug_priority,
-                    "created_at": now(),  # Set created_at to the current timestamp
-                    "updated_at": now(),  # Set updated_at to the current timestamp
+                    "created_at": now(),
+                    "updated_at": now(),
                     "modified_count": 0,
                 },
             )
 
-            # If the bug already exists, update the description or priority if needed
+            # If the bug already exists, update fields
             if not created:
                 # Update everything except the bug_id
                 bug.subject = subject
