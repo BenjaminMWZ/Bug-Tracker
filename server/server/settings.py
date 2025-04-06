@@ -26,6 +26,26 @@ DATABASES = {
 # Point to the directory where your React build is located
 REACT_APP_DIR = os.path.join(os.path.dirname(BASE_DIR), 'web')
 
+# Configure static files to include the React build
+STATICFILES_DIRS = [
+    os.path.join(REACT_APP_DIR, 'build'),
+]
+
+# The URL where static files will be served
+STATIC_URL = '/static/'
+
+# The directory where static files will be collected
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Enable WhiteNoise's GZip compression
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Add WhiteNoise configuration
+WHITENOISE_USE_FINDERS = True
+WHITENOISE_MANIFEST_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+WHITENOISE_ALLOW_ALL_ORIGINS = True
+WHITENOISE_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 # Add the React build directory to the template dirs
 TEMPLATES = [
     {
@@ -45,26 +65,6 @@ TEMPLATES = [
         },
     },
 ]
-
-# Configure static files to include the React build
-STATICFILES_DIRS = [
-    os.path.join(REACT_APP_DIR, 'build', 'static'),
-]
-
-# The URL where static files will be served
-STATIC_URL = '/static/'
-
-# The directory where static files will be collected
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-# Enable WhiteNoise's GZip compression
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-# Add WhiteNoise configuration
-WHITENOISE_USE_FINDERS = True
-WHITENOISE_MANIFEST_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-WHITENOISE_ALLOW_ALL_ORIGINS = True
-WHITENOISE_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
