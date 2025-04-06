@@ -1,18 +1,18 @@
 from django.contrib import admin
-from django.urls import path, include
-from django.http import HttpResponse
-from django.shortcuts import redirect
-
-# Simple view to handle the root URL
-def home(request):
-    return HttpResponse("Welcome to Bug Tracker API. <a href='/api/'>Access API</a>")
-
-# Alternative: redirect to API root
-def redirect_to_api(request):
-    return redirect('/api/')
+from django.urls import path, include, re_path
+from django.views.generic import TemplateView
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', home, name='home'),  # Add this line for the root URL
     path('admin/', admin.site.urls),
-    path('api/', include('issues.urls')),  # Prefix all issues URLs with /api/
+    # Your API endpoints should be prefixed with /api/
+    path('api/', include('your_app.urls')),  # Replace 'your_app' with your actual app name
+    
+    # This will catch all other routes and serve the React app
+    re_path(r'^.*$', TemplateView.as_view(template_name='index.html')),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
