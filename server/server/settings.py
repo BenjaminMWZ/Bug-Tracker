@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "rest_framework", # Django REST framework for building APIs
     "django_celery_beat", # Celery for task scheduling
     "rest_framework.authtoken", # Add auth token app
+    "django_extensions", # For extended model fields
 ]
 
 MIDDLEWARE = [

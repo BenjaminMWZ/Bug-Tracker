@@ -152,3 +152,56 @@ Fetching bug modifications from 2025-03-30 to 2025-04-06
 "GET /api/bug_modifications/ HTTP/1.1" 200 257
 Starting scheduled email processing task
 Email processing task completed successfully
+Watching for file changes with StatReloader
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Unauthorized: /api/auth/profile/
+"GET /api/auth/profile/ HTTP/1.1" 401 27
+Starting scheduled email processing task
+Email processing task completed successfully
+Login attempt for user 'test-user'
+Login failed for user 'test-user' - invalid credentials
+Unauthorized: /api/auth/login/
+"POST /api/auth/login/ HTTP/1.1" 401 31
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+"POST /api/auth/register/ HTTP/1.1" 201 156
+"GET /api/auth/profile/ HTTP/1.1" 200 96
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+Fetching bug modifications from 2025-03-30 to 2025-04-06
+"GET /api/bug_modifications/ HTTP/1.1" 200 257
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Processing bug ID: BUG-1234, Status: open, Priority: High
+Created new Bug: BUG-1234
+Email processing task completed successfully
+Starting scheduled email processing task
+"GET /api/auth/profile/ HTTP/1.1" 200 96
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Processing bug ID: BUG-1234, Status: resolved, Priority: Medium
+Updated Bug: BUG-1234 with 1 modification(s).
+Email processing task completed successfully
+"GET /api/auth/profile/ HTTP/1.1" 200 96
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+Starting scheduled email processing task
+Email processing task completed successfully
+Fetching bug modifications from 2025-03-30 to 2025-04-06
+"GET /api/bug_modifications/ HTTP/1.1" 200 257
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
