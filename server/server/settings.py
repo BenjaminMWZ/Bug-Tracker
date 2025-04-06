@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,6 +24,7 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",  # This will now work correctly
     }
 }
+
 # Point to the directory where your React build is located
 REACT_APP_DIR = os.path.join(os.path.dirname(BASE_DIR), 'web')
 
@@ -70,10 +72,10 @@ WHITENOISE_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-lp+j301xb3i5*o)+(g!ve1&a8u++#%wgr3_5rvl-3radyj)*lo"
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', "django-insecure-lp+j301xb3i5*o)+(g!ve1&a8u++#%wgr3_5rvl-3radyj)*lo")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = ['*', '.herokuapp.com'] 
 
@@ -110,17 +112,16 @@ ROOT_URLCONF = "server.urls"
 
 WSGI_APPLICATION = "server.wsgi.application"
 
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# Update database configuration
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
+    'default': dj_database_url.config(
+        default='sqlite:///' + str(BASE_DIR / 'db.sqlite3'),
+        conn_max_age=600
+    )
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

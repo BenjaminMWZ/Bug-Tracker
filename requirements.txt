@@ -8,6 +8,7 @@ click-didyoumean==0.3.1
 click-plugins==1.1.1
 click-repl==0.3.0
 cron-descriptor==1.4.5
+dj-database-url==2.1.0
 Django==4.2.20
 django-celery-beat==2.7.0
 django-cors-headers==4.7.0
@@ -17,6 +18,7 @@ gunicorn==23.0.0
 kombu==5.5.2
 packaging==24.2
 prompt_toolkit==3.0.50
+psycopg2-binary==2.9.9
 python-crontab==3.2.0
 python-dateutil==2.9.0.post0
 redis==5.2.1
