@@ -2157,3 +2157,23 @@ Starting scheduled email processing task
 Email processing task completed successfully
 Starting scheduled email processing task
 Email processing task completed successfully
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+"GET /api/auth/profile/ HTTP/1.1" 200 96
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
