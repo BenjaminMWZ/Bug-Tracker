@@ -6,6 +6,15 @@ import { useNavigate, Link } from 'react-router-dom';
 
 const { Title } = Typography;
 
+/**
+ * Login component for user authentication
+ * 
+ * Provides a form for users to enter credentials and authenticate with the system.
+ * Uses the AuthContext to handle the login process and stores authentication tokens.
+ * Includes form validation, error handling, and loading states.
+ * 
+ * @returns {JSX.Element}
+ */
 const Login = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);

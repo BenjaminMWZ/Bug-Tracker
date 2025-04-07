@@ -10,17 +10,40 @@ import { BarChartOutlined, LineChartOutlined, AreaChartOutlined } from "@ant-des
 const { Title } = Typography;
 const { Option } = Select;
 
-// Format the date to be more compact (MM/DD format)
+/**
+ * Formats dates on the X-axis to a more compact MM/DD format
+ * 
+ * @param {string} dateStr - ISO date string to format
+ * @returns {string} Formatted date string in MM/DD format
+ */
 const formatXAxis = (dateStr) => {
   const date = new Date(dateStr);
   return `${date.getMonth() + 1}/${date.getDate()}`;
 };
 
+/**
+ * Dashboard component that displays bug modification statistics over time
+ * 
+ * Features:
+ * - Fetches bug modification data from the API
+ * - Visualizes data with different chart types (line, area, bar)
+ * - Allows switching between chart types
+ * - Displays custom tooltips with detailed information
+ * - Handles loading and empty states
+ * 
+ * @returns {JSX.Element} Rendered dashboard component
+ */
 const Dashboard = () => {
+  // State for storing modification data from API
   const [modifications, setModifications] = useState([]);
+  // State for tracking loading status
   const [loading, setLoading] = useState(true);
+  // State for current selected chart type
   const [chartType, setChartType] = useState('line');
 
+  /**
+   * Effect hook to fetch bug modification data when component mounts
+   */
   useEffect(() => {
     const loadData = async () => {
       setLoading(true);
@@ -36,6 +59,12 @@ const Dashboard = () => {
     loadData();
   }, []);
 
+  /**
+   * Renders the appropriate chart based on selected chart type
+   * Handles loading and empty states
+   * 
+   * @returns {JSX.Element} The chart component or loading/empty state
+   */
   const renderChart = () => {
     if (loading) {
       return (
@@ -49,6 +78,16 @@ const Dashboard = () => {
       return <Empty description="No modification data available" />;
     }
 
+    /**
+     * Custom tooltip component for the charts
+     * Shows formatted date and modification count
+     * 
+     * @param {Object} props - Props passed from Recharts
+     * @param {boolean} props.active - Whether tooltip is active
+     * @param {Array} props.payload - Data payload for tooltip
+     * @param {string} props.label - X-axis label (date)
+     * @returns {JSX.Element|null} Tooltip component or null if inactive
+     */
     const CustomTooltip = ({ active, payload, label }) => {
       if (active && payload && payload.length) {
         // Show full date in tooltip

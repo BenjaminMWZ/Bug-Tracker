@@ -6,12 +6,27 @@ import { ArrowLeftOutlined, ClockCircleOutlined } from "@ant-design/icons";
 
 const { Title } = Typography;
 
+/**
+ * Component for displaying detailed information about a single bug.
+ * 
+ * Retrieves bug details using the bugId from URL parameters and displays
+ * them in a formatted card with priority color-coding, timestamps, and navigation.
+ * 
+ * @returns {JSX.Element} Rendered bug detail view
+ */
 const BugDetail = () => {
+  // Extract bugId from URL parameters
   const { bugId } = useParams();
+  // State for storing the fetched bug data
   const [bug, setBug] = useState(null);
+  // State for tracking loading status
   const [loading, setLoading] = useState(true);
+  // Navigation hook for programmatic routing
   const navigate = useNavigate();
 
+  /**
+   * Effect hook to fetch bug details when component mounts or bugId changes
+   */
   useEffect(() => {
     const loadBug = async () => {
       setLoading(true);
@@ -27,7 +42,12 @@ const BugDetail = () => {
     loadBug();
   }, [bugId]);
 
-  // Priority colors for tags
+  /**
+   * Maps priority level to appropriate color for visual indication
+   * 
+   * @param {string} priority - The priority level of the bug
+   * @returns {string} Color code for the priority tag
+   */
   const getPriorityColor = (priority) => {
     if (!priority) return "default";
     
@@ -43,7 +63,12 @@ const BugDetail = () => {
     }
   };
 
-  // Status colors for tags
+  /**
+   * Maps status to appropriate color for visual indication
+   * 
+   * @param {string} status - The current status of the bug
+   * @returns {string} Color code for the status tag
+   */
   const getStatusColor = (status) => {
     if (!status) return "default";
     
@@ -61,6 +86,7 @@ const BugDetail = () => {
     }
   };
 
+  // Show loading spinner while fetching data
   if (loading) {
     return (
       <div style={{ textAlign: 'center', padding: '50px' }}>
@@ -69,6 +95,7 @@ const BugDetail = () => {
     );
   }
 
+  // Show error state if bug data couldn't be retrieved
   if (!bug) {
     return (
       <Card>
@@ -80,8 +107,10 @@ const BugDetail = () => {
     );
   }
 
+  // Main render with complete bug details
   return (
     <div>
+      {/* Navigation button to return to bug list */}
       <Button 
         icon={<ArrowLeftOutlined />} 
         onClick={() => navigate('/')}
@@ -90,28 +119,34 @@ const BugDetail = () => {
         Back to Bug List
       </Button>
       
+      {/* Main card containing bug details */}
       <Card title={<Title level={2}>Bug Details: {bug.bug_id}</Title>}>
         <Descriptions bordered column={1} size="large">
+          {/* Subject line of the bug */}
           <Descriptions.Item label="Subject">
             {bug.subject}
           </Descriptions.Item>
           
+          {/* Current status with color-coded tag */}
           <Descriptions.Item label="Status">
             <Tag color={getStatusColor(bug.status)} style={{ fontSize: '14px', padding: '2px 8px' }}>
               {bug.status?.toUpperCase()}
             </Tag>
           </Descriptions.Item>
           
+          {/* Priority level with color-coded tag */}
           <Descriptions.Item label="Priority">
             <Tag color={getPriorityColor(bug.priority)} style={{ fontSize: '14px', padding: '2px 8px' }}>
               {bug.priority?.toUpperCase()}
             </Tag>
           </Descriptions.Item>
           
+          {/* Full description with preserved whitespace */}
           <Descriptions.Item label="Description">
             <div style={{ whiteSpace: 'pre-wrap' }}>{bug.description}</div>
           </Descriptions.Item>
           
+          {/* Counter showing how many times this bug has been modified */}
           <Descriptions.Item label="Modification Count">
             {bug.modified_count}
           </Descriptions.Item>
@@ -119,6 +154,7 @@ const BugDetail = () => {
         
         <Divider />
         
+        {/* Timestamps showing creation and last update times */}
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           <div>
             <ClockCircleOutlined /> Created: {new Date(bug.created_at).toLocaleString()}

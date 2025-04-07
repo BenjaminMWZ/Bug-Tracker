@@ -18,7 +18,14 @@ import setupApiInterceptor from "./utils/apiInterceptor";
 const { Header, Content, Footer } = Layout;
 const { Title } = Typography;
 
-// User dropdown menu
+/**
+ * User dropdown menu component
+ * 
+ * Displays a dropdown with user profile and logout options
+ * Uses authentication context to access user data and logout function
+ * 
+ * @returns {JSX.Element} User dropdown menu
+ */
 const UserMenu = () => {
   const { user, logout } = useContext(AuthContext);
   
@@ -42,7 +49,16 @@ const UserMenu = () => {
   );
 };
 
-// Component for authorized API calls 
+/**
+ * Component that sets up authentication interceptors for API calls
+ * 
+ * Wraps around components that need to make authenticated API requests
+ * Intercepts fetch calls to add authentication tokens to API requests
+ * 
+ * @param {Object} props - Component props
+ * @param {React.ReactNode} props.children - Child components
+ * @returns {JSX.Element} The wrapped children with API authorization
+ */
 const AuthorizedComponent = ({ children }) => {
   const { token } = useContext(AuthContext);
   
@@ -70,7 +86,14 @@ const AuthorizedComponent = ({ children }) => {
   return children;
 };
 
-// Main app content
+/**
+ * Main application content component
+ * 
+ * Contains the routing logic and layout structure for the application
+ * Uses authentication context to determine accessible routes
+ * 
+ * @returns {JSX.Element} The main application UI with routing
+ */
 const AppContent = () => {
   const { token } = theme.useToken();
   const { user } = useContext(AuthContext);
@@ -78,6 +101,7 @@ const AppContent = () => {
   return (
     <Router>
       <Layout className="layout" style={{ minHeight: '100vh' }}>
+        {/* Header with navigation */}
         <Header style={{ 
           position: 'sticky', 
           top: 0, 
@@ -88,10 +112,13 @@ const AppContent = () => {
           justifyContent: 'space-between'
         }}>
           <div style={{ display: 'flex', alignItems: 'center' }}>
+            {/* Application logo */}
             <div className="logo" style={{ marginRight: '24px' }}>
               <BugOutlined style={{ fontSize: '24px', color: 'white' }} />
             </div>
+            {/* Application title */}
             <Title level={4} style={{ color: 'white', margin: 0, marginRight: '24px' }}>Bug Tracker</Title>
+            {/* Main navigation menu - only visible when logged in */}
             {user && (
               <Menu
                 theme="dark"
@@ -105,9 +132,11 @@ const AppContent = () => {
             )}
           </div>
           
+          {/* User menu with logout - only visible when logged in */}
           {user && <UserMenu />}
         </Header>
         
+        {/* Main content area */}
         <Content style={{ padding: '0 50px', marginTop: 24 }}>
           <div className="site-layout-content" style={{ 
             background: token.colorBgContainer, 
@@ -115,7 +144,9 @@ const AppContent = () => {
             borderRadius: 8,
             minHeight: 'calc(100vh - 200px)'
           }}>
+            {/* Application routes */}
             <Routes>
+              {/* Public routes - redirect to home if already logged in */}
               <Route path="/login" element={
                 user ? <Navigate to="/" /> : <Login />
               } />
@@ -123,6 +154,7 @@ const AppContent = () => {
                 user ? <Navigate to="/" /> : <Register />
               } />
               
+              {/* Protected routes - only accessible when logged in */}
               <Route path="/" element={
                 <PrivateRoute>
                   <BugList />
@@ -141,11 +173,13 @@ const AppContent = () => {
                 </PrivateRoute>
               } />
               
+              {/* Catch-all route - redirects to appropriate starting page */}
               <Route path="*" element={<Navigate to={user ? "/" : "/login"} />} />
             </Routes>
           </div>
         </Content>
         
+        {/* Footer with copyright information */}
         <Footer style={{ textAlign: 'center' }}>
           Bug Tracker ©{new Date().getFullYear()} Created with Weizhe Mao
         </Footer>
@@ -154,7 +188,14 @@ const AppContent = () => {
   );
 };
 
-// Main App component
+/**
+ * Root App component
+ * 
+ * Wraps the entire application with the authentication provider
+ * and API authorization interceptor
+ * 
+ * @returns {JSX.Element} The complete application
+ */
 function App() {
   return (
     <AuthProvider>
@@ -165,4 +206,4 @@ function App() {
   );
 }
 
-export default App; // Add proper default export
+export default App; // Export the App component as the default export

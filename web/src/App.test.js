@@ -28,7 +28,7 @@ describe('Bug Tracker App', () => {
   });
 
   // Test 5: Test environment is set up
-  test('test environment includes jsdom', () => {
+  test('environment includes jsdom', () => {
     expect(window).toBeDefined();
     expect(document).toBeDefined();
   });

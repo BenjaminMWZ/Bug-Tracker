@@ -1,8 +1,21 @@
 import React, { createContext, useState, useEffect } from 'react';
 
+/**
+ * Authentication context for managing user session state
+ * Provides authentication functionality throughout the application
+ */
 export const AuthContext = createContext();
 
+/**
+ * Authentication Provider component that wraps the application
+ * Manages authentication state and provides login/logout functionality
+ * 
+ * @param {Object} props - Component props
+ * @param {React.ReactNode} props.children - Child components to be wrapped
+ * @returns {JSX.Element} Context provider with authentication state
+ */
 export const AuthProvider = ({ children }) => {
+  // State for storing authenticated user information
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(localStorage.getItem('auth_token') || null);
   const [loading, setLoading] = useState(true);
