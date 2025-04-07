@@ -25,26 +25,69 @@ class BugPagination(PageNumberPagination):
 
 # GET /api/bugs/
 class BugListView(generics.ListAPIView):
-    queryset = Bug.objects.all()
-    serializer_class = BugSerializer
+    """
+    API view that returns a paginated list of all bugs.
+    
+    This view handles GET requests to retrieve a list of all bug reports.
+    Results are paginated using BugPagination class, and authentication is required.
+    
+    Endpoint: GET /api/bugs/
+    Query parameters:
+        page: Page number (default: 1)
+        page_size: Number of items per page (default: 10, max: 50)
+    """
+    queryset = Bug.objects.all()  # Get all bug records
+    serializer_class = BugSerializer  # Use BugSerializer for conversion to JSON
     pagination_class = BugPagination  # Enable pagination
     permission_classes = [IsAuthenticated]  # Require authentication
 
 
 # GET /api/bugs/<bug_id>/
 class BugDetailView(generics.RetrieveAPIView):
-    queryset = Bug.objects.all()
-    serializer_class = BugSerializer
+    """
+    API view that returns details for a specific bug.
+    
+    This view handles GET requests to retrieve a single bug report 
+    identified by its bug_id.
+    
+    Endpoint: GET /api/bugs/<bug_id>/
+    URL parameters:
+        bug_id: The unique identifier for the bug (e.g., BUG-1234)
+    """
+    queryset = Bug.objects.all()  # Get all bug records
+    serializer_class = BugSerializer  # Use BugSerializer for conversion to JSON
     lookup_field = 'bug_id'  # This makes it match the custom bug_id instead of pk
     permission_classes = [IsAuthenticated]  # Require authentication
 
+# Get a logger for the views
 logger = logging.getLogger('bug_tracker')
 
 #  GET /api/bug_modifications/
-logger = logging.getLogger('bug_tracker')
-
 class BugModificationListView(APIView):
+    """
+    API view that returns aggregated bug modification data for charting.
+    
+    This view handles GET requests to retrieve counts of bug modifications
+    grouped by date, intended for visualization in the dashboard.
+    
+    Endpoint: GET /api/bug_modifications/
+    Returns:
+        JSON array of objects with 'date' and 'count' fields, showing the
+        number of bugs modified on each date over the past week.
+    """
     def get(self, request, *args, **kwargs):
+        """
+        Handle GET requests for bug modification statistics.
+        
+        Aggregates bug records by date and counts modifications,
+        providing data for the past 7 days.
+        
+        Args:
+            request: The HTTP request object
+            
+        Returns:
+            Response: JSON data with dates and modification counts
+        """
         try:
             # Get today's date and calculate the date one week ago
             today = date.today()

@@ -1349,3 +1349,459 @@ Starting scheduled email processing task
 Email processing task completed successfully
 Starting scheduled email processing task
 Email processing task completed successfully
+Watching for file changes with StatReloader
+Starting scheduled email processing task
+Email processing task completed successfully
+"OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+Login attempt for user 'test-user'
+Login successful for user 'test-user'
+"POST /api/auth/login/ HTTP/1.1" 200 156
+"GET /api/auth/profile/ HTTP/1.1" 200 96
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+/Users/benjaminmao/Desktop/interview/samsung/Bug-Tracker/server/issues/auth.py changed, reloading.
+Watching for file changes with StatReloader
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+/Users/benjaminmao/Desktop/interview/samsung/Bug-Tracker/server/issues/models.py changed, reloading.
+Starting scheduled email processing task
+Watching for file changes with StatReloader
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Login attempt for user 'testuser'
+Login successful for user 'testuser'
+Unauthorized: /api/auth/profile/
+Login attempt for user 'testuser'
+Login failed for user 'testuser' - invalid credentials
+Unauthorized: /api/auth/login/
+Login attempt for user 'testuser'
+Login successful for user 'testuser'
+Bad Request: /api/auth/register/
+Bad Request: /api/auth/register/
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Failed to connect to email server: Connection failed
+Error processing email b'1': expected string or bytes-like object, got 'NoneType'
+Error processing email b'2': expected string or bytes-like object, got 'NoneType'
+Error processing email b'1': expected string or bytes-like object, got 'NoneType'
+Error searching for emails: ['Server error']
+Error searching for emails: ['Server error']
+Failed to fetch email 1
+Error processing email 2: expected string or bytes-like object, got 'NoneType'
+Error processing email 3: expected string or bytes-like object, got 'NoneType'
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+"OPTIONS /api/auth/profile/ HTTP/1.1" 200 0
+"GET /api/auth/profile/ HTTP/1.1" 200 96
+"OPTIONS /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 0
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+/Users/benjaminmao/Desktop/interview/samsung/Bug-Tracker/server/issues/serializers.py changed, reloading.
+Watching for file changes with StatReloader
+Starting scheduled email processing task
+Email processing task completed successfully
+/Users/benjaminmao/Desktop/interview/samsung/Bug-Tracker/server/issues/serializers.py changed, reloading.
+Starting scheduled email processing task
+Watching for file changes with StatReloader
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+/Users/benjaminmao/Desktop/interview/samsung/Bug-Tracker/server/issues/serializers.py changed, reloading.
+Watching for file changes with StatReloader
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+/Users/benjaminmao/Desktop/interview/samsung/Bug-Tracker/server/issues/urls.py changed, reloading.
+Starting scheduled email processing task
+Watching for file changes with StatReloader
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+/Users/benjaminmao/Desktop/interview/samsung/Bug-Tracker/server/issues/views.py changed, reloading.
+Watching for file changes with StatReloader
+Starting scheduled email processing task
+Email processing task completed successfully
+Login attempt for user 'testuser'
+Login successful for user 'testuser'
+Unauthorized: /api/auth/profile/
+Login attempt for user 'testuser'
+Login failed for user 'testuser' - invalid credentials
+Unauthorized: /api/auth/login/
+Login attempt for user 'testuser'
+Login successful for user 'testuser'
+Bad Request: /api/auth/register/
+Bad Request: /api/auth/register/
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Failed to connect to email server: Connection failed
+Error processing email b'1': expected string or bytes-like object, got 'NoneType'
+Error processing email b'2': expected string or bytes-like object, got 'NoneType'
+Error processing email b'1': expected string or bytes-like object, got 'NoneType'
+Error searching for emails: ['Server error']
+Error searching for emails: ['Server error']
+Failed to fetch email 1
+Error processing email 2: expected string or bytes-like object, got 'NoneType'
+Error processing email 3: expected string or bytes-like object, got 'NoneType'
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+/Users/benjaminmao/Desktop/interview/samsung/Bug-Tracker/server/issues/auth.py changed, reloading.
+Watching for file changes with StatReloader
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+/Users/benjaminmao/Desktop/interview/samsung/Bug-Tracker/server/issues/models.py changed, reloading.
+Watching for file changes with StatReloader
+Starting scheduled email processing task
+Email processing task completed successfully
+Login attempt for user 'testuser'
+Login successful for user 'testuser'
+Unauthorized: /api/auth/profile/
+Login attempt for user 'testuser'
+Login failed for user 'testuser' - invalid credentials
+Unauthorized: /api/auth/login/
+Login attempt for user 'testuser'
+Login successful for user 'testuser'
+Bad Request: /api/auth/register/
+Bad Request: /api/auth/register/
+Starting scheduled email processing task
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Email processing task completed successfully
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Failed to connect to email server: Connection failed
+Error processing email b'1': expected string or bytes-like object, got 'NoneType'
+Error processing email b'2': expected string or bytes-like object, got 'NoneType'
+Error processing email b'1': expected string or bytes-like object, got 'NoneType'
+Error searching for emails: ['Server error']
+Error searching for emails: ['Server error']
+Failed to fetch email 1
+Error processing email 2: expected string or bytes-like object, got 'NoneType'
+Error processing email 3: expected string or bytes-like object, got 'NoneType'
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Login attempt for user 'testuser'
+Login successful for user 'testuser'
+Unauthorized: /api/auth/profile/
+Login attempt for user 'testuser'
+Starting scheduled email processing task
+Login failed for user 'testuser' - invalid credentials
+Unauthorized: /api/auth/login/
+Login attempt for user 'testuser'
+Login successful for user 'testuser'
+Bad Request: /api/auth/register/
+Bad Request: /api/auth/register/
+Email processing task completed successfully
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Processing bug ID: AUTO-20250407055348-, Status: open, Priority: Medium
+Processing bug ID: AUTO-20250407055348-, Status: resolved, Priority: Medium
+Processing bug ID: AUTO-20250407055348-, Status: open, Priority: Medium
+Failed to fetch email 1
+Processing bug ID: AUTO-20250407055348-, Status: open, Priority: Medium
+Error processing email 2: Database error
+Processing bug ID: AUTO-20250407055348-, Status: open, Priority: Medium
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Login attempt for user 'testuser'
+Login successful for user 'testuser'
+Unauthorized: /api/auth/profile/
+Login attempt for user 'testuser'
+Login failed for user 'testuser' - invalid credentials
+Unauthorized: /api/auth/login/
+Login attempt for user 'testuser'
+Login successful for user 'testuser'
+Bad Request: /api/auth/register/
+Bad Request: /api/auth/register/
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Processing bug ID: AUTO-20250407055643-, Status: open, Priority: Medium
+Processing bug ID: AUTO-20250407055643-, Status: resolved, Priority: Medium
+Processing bug ID: AUTO-20250407055643-, Status: open, Priority: Medium
+Failed to fetch email 1
+Processing bug ID: AUTO-20250407055643-, Status: open, Priority: Medium
+Error processing email 2: Database error
+Processing bug ID: AUTO-20250407055643-, Status: open, Priority: Medium
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
