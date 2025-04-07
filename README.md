@@ -94,9 +94,9 @@ Frontend Setup
     ```
 Run the Celery worker:
 1. Start the Celery worker in a separate terminal:
-   ```bash
-   celery -A bug_tracker worker --loglevel=info
-   ```
+```bash
+celery -A bug_tracker worker --loglevel=info
+```
 2. Start the Celery beat scheduler in another terminal:
 ```bash
 celery -A bug_tracker beat --loglevel=info
@@ -117,10 +117,6 @@ Body:
 If the bug ID already exists, the system updates the existing bug record. Otherwise, it creates a new bug record.
 
 ### Example email:
-```
-Subject: Bug Report - Login Issue
-Body:
-I am unable to log in with my credentials.
 ```
 Subject: Bug ID: BUG-1234 - Login page not working
 Body: Users are reporting that they cannot log in to the application. The login button seems unresponsive.
