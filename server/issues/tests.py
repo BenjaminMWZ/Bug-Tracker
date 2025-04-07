@@ -3,6 +3,11 @@ from django.utils.timezone import now
 from issues.models import Bug
 import re
 import time
+from django.urls import reverse
+from django.contrib.auth.models import User
+from rest_framework.test import APIClient
+from rest_framework import status
+import json
 
 class BugEmailProcessingTest(TestCase):
     """
@@ -560,7 +565,7 @@ class BugEmailProcessingTest(TestCase):
         # Verify after update
         bug.refresh_from_db()
         self.assertEqual(bug.description, "", "Description should be an empty string")
-        
+
     def test_search_functionality(self):
         """
         Test that bugs can be properly searched by various criteria.
@@ -627,3 +632,111 @@ class BugEmailProcessingTest(TestCase):
         # Test search by bug_id pattern
         pattern_bugs = Bug.objects.filter(bug_id__startswith="SEARCH")
         self.assertEqual(pattern_bugs.count(), 3, "Should find all three search test bugs")
+
+
+import unittest
+
+class AuthenticationTests(TestCase):
+    def setUp(self):
+        """Set up test environment before each test."""
+        self.client = APIClient()
+        
+        # Only use URLs we know exist
+        self.register_url = reverse('register')
+        self.login_url = reverse('login')
+        
+        # Use a hardcoded path for profile URL
+        self.profile_url = '/api/auth/profile/'
+        
+        # Create a test user
+        self.user = User.objects.create_user(
+            username='testuser',
+            email='testuser@example.com',
+            password='testpassword123'
+        )
+
+    def test_registration_successful(self):
+        """Test user registration with valid data"""
+        data = {
+            'username': 'newuser',
+            'email': 'newuser@example.com',
+            'password': 'newpassword123',
+            'password2': 'newpassword123'  # Confirmation password
+        }
+        response = self.client.post(self.register_url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertTrue(User.objects.filter(username='newuser').exists())
+        
+        # Check response content
+        self.assertIn('token', response.data)
+        self.assertIn('user', response.data)
+        self.assertEqual(response.data['user']['username'], 'newuser')
+    
+    def test_registration_invalid_data(self):
+        """Test user registration with invalid data"""
+        # Test with mismatched passwords
+        data = {
+            'username': 'newuser2',
+            'email': 'newuser2@example.com',
+            'password': 'password123',
+            'password2': 'differentpassword'  # Mismatched password
+        }
+        response = self.client.post(self.register_url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertFalse(User.objects.filter(username='newuser2').exists())
+        
+        # Test with existing username
+        data = {
+            'username': 'testuser',  # Already exists
+            'email': 'another@example.com',
+            'password': 'password123',
+            'password2': 'password123'
+        }
+        response = self.client.post(self.register_url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+    
+    def test_login_successful(self):
+        """Test user login with valid credentials"""
+        data = {
+            'username': 'testuser',
+            'password': 'testpassword123'
+        }
+        response = self.client.post(self.login_url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        
+        # Check response content
+        self.assertIn('token', response.data)
+        self.assertIn('user', response.data)
+        self.assertEqual(response.data['user']['username'], 'testuser')
+    
+    def test_login_invalid_credentials(self):
+        """Test user login with invalid credentials"""
+        data = {
+            'username': 'testuser',
+            'password': 'wrongpassword'
+        }
+        response = self.client.post(self.login_url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+    
+    def test_get_user_profile_authenticated(self):
+        """Test accessing user profile when authenticated"""
+        # First login to get token
+        login_data = {
+            'username': 'testuser',
+            'password': 'testpassword123'
+        }
+        login_response = self.client.post(self.login_url, login_data, format='json')
+        token = login_response.data['token']
+        
+        # Use token to access profile
+        self.client.credentials(HTTP_AUTHORIZATION=f'Token {token}')
+        response = self.client.get(self.profile_url)
+        
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['username'], 'testuser')
+        self.assertEqual(response.data['email'], 'testuser@example.com')
+    
+    def test_get_user_profile_unauthenticated(self):
+        """Test accessing user profile without authentication"""
+        response = self.client.get(self.profile_url)
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)

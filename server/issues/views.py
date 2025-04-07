@@ -9,6 +9,13 @@ from datetime import timedelta, date
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAuthenticated
 import logging
+from django.http import HttpResponse
+from django.shortcuts import render
+
+# Add this function at the beginning or end of your views.py file
+def home(request):
+    """Simple view that returns the home page."""
+    return HttpResponse("Bug Tracker")
 
 # Custom pagination class (optional, for more control)
 class BugPagination(PageNumberPagination):

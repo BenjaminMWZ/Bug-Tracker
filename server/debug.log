@@ -209,3 +209,313 @@ Error processing email b'1': 'tuple' object has no attribute 'decode'
 Error processing email b'1': 'tuple' object has no attribute 'decode'
 Error processing email b'1': 'tuple' object has no attribute 'decode'
 Error processing email b'1': 'NoneType' object has no attribute 'fetch'
+Watching for file changes with StatReloader
+Starting scheduled email processing task
+Email processing task completed successfully
+"OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+Login attempt for user 'test-user'
+Login successful for user 'test-user'
+"POST /api/auth/login/ HTTP/1.1" 200 156
+"OPTIONS /api/auth/profile/ HTTP/1.1" 200 0
+"GET /api/auth/profile/ HTTP/1.1" 200 96
+"OPTIONS /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 0
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+Starting scheduled email processing task
+Email processing task completed successfully
+"GET /api/auth/profile/ HTTP/1.1" 200 96
+Starting scheduled email processing task
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+Email processing task completed successfully
+"GET /api/auth/profile/ HTTP/1.1" 200 96
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+Unauthorized: /api/auth/profile/
+"GET /api/auth/profile/ HTTP/1.1" 401 27
+Starting scheduled email processing task
+Login attempt for user 'test-user'
+Login failed for user 'test-user' - invalid credentials
+Unauthorized: /api/auth/login/
+"POST /api/auth/login/ HTTP/1.1" 401 31
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+"OPTIONS /api/auth/register/ HTTP/1.1" 200 0
+"POST /api/auth/register/ HTTP/1.1" 201 156
+"GET /api/auth/profile/ HTTP/1.1" 200 96
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+Starting scheduled email processing task
+Email processing task completed successfully
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+Starting scheduled email processing task
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+Processing bug ID: BUG-1234, Status: open, Priority: High
+Created new Bug: BUG-1234
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+Email processing task completed successfully
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"OPTIONS /api/bug_modifications/ HTTP/1.1" 200 0
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+"GET /api/bug_modifications/ HTTP/1.1" 200 257
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+"GET /api/bug_modifications/ HTTP/1.1" 200 257
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+Starting scheduled email processing task
+Email processing task completed successfully
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+Starting scheduled email processing task
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+Processing bug ID: BUG-1234, Status: resolved, Priority: Medium
+Updated Bug: BUG-1234 with 1 modification(s).
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+Email processing task completed successfully
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+"GET /api/bug_modifications/ HTTP/1.1" 200 257
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Login attempt for user 'testuser'
+Login successful for user 'testuser'
+Login attempt for user 'testuser'
+Login failed for user 'testuser' - invalid credentials
+Unauthorized: /api/auth/login/
+Login attempt for user 'testuser'
+Login successful for user 'testuser'
+Bad Request: /api/auth/register/
+Bad Request: /api/auth/register/
+Login attempt for user 'testuser'
+Login successful for user 'testuser'
+Login attempt for user 'testuser'
+Login failed for user 'testuser' - invalid credentials
+Unauthorized: /api/auth/login/
+Login attempt for user 'testuser'
+Login successful for user 'testuser'
+Bad Request: /api/auth/register/
+Bad Request: /api/auth/register/
+Login attempt for user 'testuser'
+Login successful for user 'testuser'
+Unauthorized: /api/auth/profile/
+Login attempt for user 'testuser'
+Login failed for user 'testuser' - invalid credentials
+Unauthorized: /api/auth/login/
+Login attempt for user 'testuser'
+Login successful for user 'testuser'
+Bad Request: /api/auth/register/
+Bad Request: /api/auth/register/
+Watching for file changes with StatReloader
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+"POST /api/auth/register/ HTTP/1.1" 201 156
+"GET /api/auth/profile/ HTTP/1.1" 200 96
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+"GET /api/bug_modifications/ HTTP/1.1" 200 257
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+Processing bug ID: BUG-1234, Status: open, Priority: High
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+Created new Bug: BUG-1234
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+Email processing task completed successfully
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+Starting scheduled email processing task
+Processing bug ID: BUG-1234, Status: resolved, Priority: Medium
+Updated Bug: BUG-1234 with 1 modification(s).
+Email processing task completed successfully
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+Starting scheduled email processing task
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+Email processing task completed successfully
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+Starting scheduled email processing task
+Email processing task completed successfully
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+"GET /api/bug_modifications/ HTTP/1.1" 200 257
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+Starting scheduled email processing task
+Email processing task completed successfully
