@@ -188,20 +188,18 @@ class Command(BaseCommand):
             msg = email.message_from_bytes(msg_data[0][1])
             bug_id, subject, description = self.parse_email(msg)
 
-            # If no bug_id is found, skip the email
-            if not bug_id:
-                logger.warning(f"Skipping email {email_id}: No Bug ID found.")
-                self.stderr.write(f"Skipping email {email_id}: No Bug ID found.")
-                return
+            # Print debug info about extracted data
+            self.stdout.write(f"Extracted bug_id: {bug_id} from email with subject: {subject}")
 
             # Extract status using the improved method
             bug_status = self.extract_status(subject, description)
             
-            # Determine priority (existing method)
+            # Determine priority
             bug_priority = self.determine_priority(subject, description)
 
             # Log what we're about to do
             logger.info(f"Processing bug ID: {bug_id}, Status: {bug_status}, Priority: {bug_priority}")
+            self.stdout.write(f"Processing bug ID: {bug_id}, Status: {bug_status}, Priority: {bug_priority}")
 
             # Create or update the bug
             bug, created = Bug.objects.get_or_create(
@@ -227,66 +225,12 @@ class Command(BaseCommand):
                 bug.modified_count += 1
                 bug.updated_at = now()
                 bug.save()
-                logger.info(f"Updated Bug: {bug_id} with {bug.modified_count} modification(s).")
+                self.stdout.write(f"Updated Bug: {bug_id} with {bug.modified_count} modification(s).")
             else:
-                logger.info(f"Created new Bug: {bug_id}")
+                self.stdout.write(f"Created new Bug: {bug_id}")
 
             mail.store(email_id, "+FLAGS", "\\Seen")
             
         except Exception as e:
             logger.error(f"Error processing email {email_id}: {str(e)}")
             self.stderr.write(f"Error processing email {email_id}: {str(e)}")
-            """Process a single email and update/create a Bug record."""
-            try:
-                status, msg_data = mail.fetch(email_id, "(RFC822)")
-                if status != "OK":
-                    self.stderr.write(f"Failed to fetch email {email_id}")
-                    return
-
-                msg = email.message_from_bytes(msg_data[0][1])
-                bug_id, subject, description = self.parse_email(msg)
-
-                # If no bug_id is found, skip the email
-                if not bug_id:
-                    self.stderr.write(f"Skipping email {email_id}: No Bug ID found.")
-                    return
-
-                # Extract status using the improved method
-                bug_status = self.extract_status(subject, description)
-                
-                # Determine priority (existing method)
-                bug_priority = self.determine_priority(subject, description)
-
-                # Include created_at and updated_at in defaults
-                bug, created = Bug.objects.get_or_create(
-                    bug_id=bug_id,
-                    defaults={
-                        "subject": subject,
-                        "description": description,
-                        "status": bug_status,  # Use the extracted status for new bugs too
-                        "priority": bug_priority,
-                        "created_at": now(),
-                        "updated_at": now(),
-                        "modified_count": 0,
-                    },
-                )
-
-                # If the bug already exists, update fields
-                if not created:
-                    # Update everything except the bug_id
-                    bug.subject = subject
-                    bug.description = description
-                    bug.priority = bug_priority
-                    bug.status = bug_status
-                    bug.modified_count += 1
-                    bug.updated_at = now()
-                    bug.save()
-                    self.stdout.write(f"Updated Bug: {bug_id} with {bug.modified_count} modification(s).")
-                else:
-                    self.stdout.write(f"Created new Bug: {bug_id}")
-
-                mail.store(email_id, "+FLAGS", "\\Seen")
-                
-            except Exception as e:
-                self.stderr.write(f"Error processing email {email_id}: {e}")
-                return

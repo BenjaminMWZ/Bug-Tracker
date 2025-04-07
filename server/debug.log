@@ -519,3 +519,694 @@ Fetching bug modifications from 2025-03-31 to 2025-04-07
 "GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
 Starting scheduled email processing task
 Email processing task completed successfully
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Error fetching bug modifications: name 'now' is not defined
+Internal Server Error: /api/bug_modifications/
+Error fetching bug modifications: name 'now' is not defined
+Internal Server Error: /api/bug_modifications/
+Error fetching bug modifications: name 'now' is not defined
+Internal Server Error: /api/bug_modifications/
+Error fetching bug modifications: name 'now' is not defined
+Internal Server Error: /api/bug_modifications/
+Error fetching bug modifications: name 'now' is not defined
+Internal Server Error: /api/bug_modifications/
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Unauthorized: /api/bug_modifications/
+Fetching bug modifications from 2025-04-06 to 2025-04-07
+Watching for file changes with StatReloader
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+"POST /api/auth/register/ HTTP/1.1" 201 156
+"GET /api/auth/profile/ HTTP/1.1" 200 96
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+"GET /api/bug_modifications/ HTTP/1.1" 200 2
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Processing bug ID: BUG-1234, Status: open, Priority: High
+Created new Bug: BUG-1234
+Email processing task completed successfully
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+"GET /api/bug_modifications/ HTTP/1.1" 200 2
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+"GET /api/bug_modifications/ HTTP/1.1" 200 2
+Starting scheduled email processing task
+Email processing task completed successfully
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Processing bug ID: BUG-1234, Status: resolved, Priority: Medium
+Updated Bug: BUG-1234 with 1 modification(s).
+Email processing task completed successfully
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+"GET /api/bug_modifications/ HTTP/1.1" 200 33
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+/Users/benjaminmao/Desktop/interview/samsung/Bug-Tracker/server/issues/views.py changed, reloading.
+Watching for file changes with StatReloader
+Email processing task completed successfully
+"GET /api/auth/profile/ HTTP/1.1" 200 96
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+"GET /api/bug_modifications/ HTTP/1.1" 200 257
+Starting scheduled email processing task
+Email processing task completed successfully
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Watching for file changes with StatReloader
+Starting scheduled email processing task
+"GET /api/auth/profile/ HTTP/1.1" 200 96
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+"GET /api/bug_modifications/ HTTP/1.1" 200 257
+Email processing task completed successfully
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+"GET /api/bug_modifications/ HTTP/1.1" 200 257
+Login attempt for user 'testuser'
+Login successful for user 'testuser'
+Unauthorized: /api/auth/profile/
+Login attempt for user 'testuser'
+Login failed for user 'testuser' - invalid credentials
+Unauthorized: /api/auth/login/
+Login attempt for user 'testuser'
+Login successful for user 'testuser'
+Bad Request: /api/auth/register/
+Bad Request: /api/auth/register/
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Login attempt for user 'testuser'
+Login successful for user 'testuser'
+Unauthorized: /api/auth/profile/
+Login attempt for user 'testuser'
+Login failed for user 'testuser' - invalid credentials
+Unauthorized: /api/auth/login/
+Login attempt for user 'testuser'
+Login successful for user 'testuser'
+Bad Request: /api/auth/register/
+Bad Request: /api/auth/register/
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Login attempt for user 'testuser'
+Login successful for user 'testuser'
+Unauthorized: /api/auth/profile/
+Login attempt for user 'testuser'
+Login failed for user 'testuser' - invalid credentials
+Unauthorized: /api/auth/login/
+Login attempt for user 'testuser'
+Login successful for user 'testuser'
+Bad Request: /api/auth/register/
+Bad Request: /api/auth/register/
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Watching for file changes with StatReloader
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+"POST /api/auth/register/ HTTP/1.1" 201 156
+"GET /api/auth/profile/ HTTP/1.1" 200 96
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Login attempt for user 'testuser'
+Login successful for user 'testuser'
+Unauthorized: /api/auth/profile/
+Login attempt for user 'testuser'
+Login failed for user 'testuser' - invalid credentials
+Unauthorized: /api/auth/login/
+Login attempt for user 'testuser'
+Login successful for user 'testuser'
+Bad Request: /api/auth/register/
+Bad Request: /api/auth/register/
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Processing bug ID: AUTO-20250407014615-, Status: open, Priority: Medium
+Created new Bug: AUTO-20250407014615-
+Processing bug ID: AUTO-20250407014615-, Status: resolved, Priority: Medium
+Updated Bug: AUTO-20250407014615- with 1 modification(s).
+Processing bug ID: AUTO-20250407014615-, Status: open, Priority: Medium
+Created new Bug: AUTO-20250407014615-
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Processing bug ID: AUTO-20250407014723-, Status: open, Priority: Medium
+Created new Bug: AUTO-20250407014723-
+Processing bug ID: AUTO-20250407014723-, Status: resolved, Priority: Medium
+Updated Bug: AUTO-20250407014723- with 1 modification(s).
+Processing bug ID: AUTO-20250407014723-, Status: open, Priority: Medium
+Created new Bug: AUTO-20250407014723-
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Processing bug ID: AUTO-20250407015410-, Status: open, Priority: Medium
+Processing bug ID: AUTO-20250407015410-, Status: resolved, Priority: Medium
+Processing bug ID: AUTO-20250407015410-, Status: open, Priority: Medium
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Processing bug ID: AUTO-20250407015624-, Status: open, Priority: Medium
+Processing bug ID: AUTO-20250407015624-, Status: resolved, Priority: Medium
+Processing bug ID: AUTO-20250407015624-, Status: open, Priority: Medium
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Processing bug ID: AUTO-20250407015726-, Status: open, Priority: Medium
+Processing bug ID: AUTO-20250407015726-, Status: resolved, Priority: Medium
+Processing bug ID: AUTO-20250407015726-, Status: open, Priority: Medium
+Starting scheduled email processing task
+Email processing task completed successfully
+Login attempt for user 'testuser'
+Login successful for user 'testuser'
+Unauthorized: /api/auth/profile/
+Login attempt for user 'testuser'
+Login failed for user 'testuser' - invalid credentials
+Unauthorized: /api/auth/login/
+Login attempt for user 'testuser'
+Login successful for user 'testuser'
+Bad Request: /api/auth/register/
+Bad Request: /api/auth/register/
+Starting scheduled email processing task
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Processing bug ID: AUTO-20250407015740-, Status: open, Priority: Medium
+Processing bug ID: AUTO-20250407015740-, Status: resolved, Priority: Medium
+Processing bug ID: AUTO-20250407015740-, Status: open, Priority: Medium
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Login attempt for user 'testuser'
+Login successful for user 'testuser'
+Unauthorized: /api/auth/profile/
+Login attempt for user 'testuser'
+Login failed for user 'testuser' - invalid credentials
+Unauthorized: /api/auth/login/
+Login attempt for user 'testuser'
+Login successful for user 'testuser'
+Bad Request: /api/auth/register/
+Bad Request: /api/auth/register/
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Processing bug ID: AUTO-20250407021015-, Status: open, Priority: Medium
+Processing bug ID: AUTO-20250407021015-, Status: resolved, Priority: Medium
+Processing bug ID: AUTO-20250407021015-, Status: open, Priority: Medium
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+Email processing task completed successfully
+Watching for file changes with StatReloader
+"GET /api/auth/profile/ HTTP/1.1" 200 96
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+Starting scheduled email processing task
+Email processing task completed successfully
+"GET /api/auth/profile/ HTTP/1.1" 200 96
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+"GET /api/bug_modifications/ HTTP/1.1" 200 257
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+Starting scheduled email processing task
+Email processing task completed successfully
+"GET /api/auth/profile/ HTTP/1.1" 200 96
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+Starting scheduled email processing task
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 52
+Processing bug ID: BUG-1234, Status: open, Priority: High
+Email processing task completed successfully
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+Starting scheduled email processing task
+Email processing task completed successfully
+Starting scheduled email processing task
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 444
+Processing bug ID: BUG-1234, Status: resolved, Priority: Medium
+Email processing task completed successfully
+"GET /api/bugs/?page=1&page_size=10 HTTP/1.1" 200 306
+Failed to fetch email 1
+Processing bug ID: AUTO-20250407021410-, Status: open, Priority: Medium
+Error processing email 2: Database error
+Processing bug ID: AUTO-20250407021410-, Status: open, Priority: Medium
+Failed to fetch email 1
+Processing bug ID: AUTO-20250407021538-, Status: open, Priority: Medium
+Error processing email 2: Database error
+Processing bug ID: AUTO-20250407021538-, Status: open, Priority: Medium
+Failed to fetch email 1
+Processing bug ID: AUTO-20250407021707-, Status: open, Priority: Medium
+Error processing email 2: Database error
+Processing bug ID: AUTO-20250407021707-, Status: open, Priority: Medium
+Login attempt for user 'testuser'
+Login successful for user 'testuser'
+Unauthorized: /api/auth/profile/
+Login attempt for user 'testuser'
+Login failed for user 'testuser' - invalid credentials
+Unauthorized: /api/auth/login/
+Login attempt for user 'testuser'
+Login successful for user 'testuser'
+Bad Request: /api/auth/register/
+Bad Request: /api/auth/register/
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Processing bug ID: AUTO-20250407021806-, Status: open, Priority: Medium
+Processing bug ID: AUTO-20250407021806-, Status: resolved, Priority: Medium
+Processing bug ID: AUTO-20250407021806-, Status: open, Priority: Medium
+Failed to fetch email 1
+Processing bug ID: AUTO-20250407021806-, Status: open, Priority: Medium
+Error processing email 2: Database error
+Processing bug ID: AUTO-20250407021806-, Status: open, Priority: Medium
+Starting scheduled email processing task
+Email processing task completed successfully
+Login attempt for user 'testuser'
+Login successful for user 'testuser'
+Unauthorized: /api/auth/profile/
+Login attempt for user 'testuser'
+Login failed for user 'testuser' - invalid credentials
+Unauthorized: /api/auth/login/
+Login attempt for user 'testuser'
+Login successful for user 'testuser'
+Bad Request: /api/auth/register/
+Bad Request: /api/auth/register/
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Fetching bug modifications from 2025-03-31 to 2025-04-07
+Processing bug ID: AUTO-20250407022004-, Status: open, Priority: Medium
+Processing bug ID: AUTO-20250407022004-, Status: resolved, Priority: Medium
+Processing bug ID: AUTO-20250407022004-, Status: open, Priority: Medium
+Failed to fetch email 1
+Processing bug ID: AUTO-20250407022004-, Status: open, Priority: Medium
+Error processing email 2: Database error
+Processing bug ID: AUTO-20250407022004-, Status: open, Priority: Medium
+Starting scheduled email processing task
+Email processing task completed successfully
